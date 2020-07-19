@@ -1,0 +1,169 @@
+:root {
+  --fluff-size: 70px;
+  --ear-width: 15px;
+  --ear-height: 20px;
+}
+
+body {
+  background: #54A865;
+}
+
+.sheep {
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  width: 180px;
+  height: 180px;
+}
+
+/* body */
+
+.fluff {
+  position: absolute;
+  width: var(--fluff-size);
+  height: var(--fluff-size);
+  border-radius: 50%;
+  background: white;
+  top: 50px;
+}
+
+.fluff.right {
+  right: 0;
+}
+
+.fluff::before {
+  content: "";
+  position: absolute;
+  width: var(--fluff-size);
+  height: var(--fluff-size);
+  border-radius: 50%;
+  background: white;
+  top: -35px;
+}
+
+.fluff.left::before {
+  left: 35px;
+}
+
+.fluff.right::before {
+  left: -35px;
+}
+
+.fluff::after {
+  content: "";
+  top: 35px;
+  position: absolute;
+  width: var(--fluff-size);
+  height: var(--fluff-size);
+  border-radius: 50%;
+  background: white;
+}
+
+.fluff.left::after {
+  left: 35px;
+}
+
+.fluff.right::after {
+  left: -35px;
+}
+
+/* head */
+
+.head {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  background: black;
+  border-radius: 50%;
+}
+
+/* ears */
+
+.head::before {
+  content: "";
+  position: absolute;
+  background: black;
+  width: var(--ear-width);
+  height: var(--ear-height);
+  border-radius: 50%;
+  top: -5px;
+  left: 5px;
+}
+
+.head::after {
+  content: "";
+  position: absolute;
+  background: black;
+  width: var(--ear-width);
+  height: var(--ear-height);
+  border-radius: 50%;
+  top: -5px;
+  right: 5px;
+}
+
+/* eyes */
+
+.eye {
+  position: absolute;
+  background: black;
+  border: 5px solid white;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  top: 15px;
+}
+
+.eye.left {
+  left: 10px;
+}
+
+.eye.right {
+  right: 10px;
+}
+
+/* mouth */
+
+.mouth {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: 30px;
+  height: 30px;
+  clip-path: circle(50% at 50% 0);
+}
+
+/* legs */
+
+.leg {
+  position: absolute;
+  top: 120px;
+  height: 50px;
+  width: 15px;
+  background: black;
+  border-radius: 30%;
+}
+
+.leg.left {
+  left: 30%;
+  transform: translateX(-30%);
+    animation: walk 1s infinite alternate-reverse;
+}
+
+.leg.right {
+  right: 30%;
+  transform: translateX(30%);
+    animation: walk 1s 1s infinite alternate-reverse;
+}
+
+@keyframes walk {
+  100% {
+    top: 130px;
+  }
+}
